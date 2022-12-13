@@ -7,17 +7,108 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/luminosity_text"
-        android:layout_width="229dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="343dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="344dp"
+        android:id="@+id/gyroscope_z"
+        android:layout_width="85dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="78dp"
         android:text="0.0"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gyroscope_title" />
+
+    <TextView
+        android:id="@+id/gyroscope_y"
+        android:layout_width="85dp"
+        android:layout_height="43dp"
+        android:text="0.0"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/gyroscope_z"
+        app:layout_constraintStart_toEndOf="@+id/gyroscope_x"
+        app:layout_constraintTop_toBottomOf="@+id/gyroscope_title" />
+
+    <TextView
+        android:id="@+id/gyroscope_x"
+        android:layout_width="85dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="78dp"
+        android:text="0.0"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gyroscope_title" />
+
+    <TextView
+        android:id="@+id/position_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="130dp"
+        android:text="POSITION"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gyroscope_y" />
+
+    <TextView
+        android:id="@+id/position_lon"
+        android:layout_width="85dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="122dp"
+        android:text="0.0"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/position_title" />
+
+    <TextView
+        android:id="@+id/position_lat"
+        android:layout_width="85dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="122dp"
+        android:text="0.0"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/position_title" />
+
+    <TextView
+        android:id="@+id/gyroscope_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="88dp"
+        android:text="GYROSCOPE"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/luminosity_value" />
+
+    <TextView
+        android:id="@+id/luminosity_value"
+        android:layout_width="229dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginEnd="91dp"
+        android:text="0.0"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/luminosity_title" />
+
+    <TextView
+        android:id="@+id/luminosity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="108dp"
+        android:text="LUMINOSITY"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -12,25 +12,48 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
-    TextView luminosityText;
-
     SensorManager sensorManager;
-    Sensor sensor;
+
+    TextView luminosityText;
+    Sensor luminositySensor;
+
+    TextView gyroscopeX;
+    TextView gyroscopeY;
+    TextView gyroscopeZ;
+    Sensor gyroscopeSensor;
+
+    TextView positionLat;
+    TextView positionLon;
+    Sensor positionSensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        luminosityText = findViewById(R.id.luminosity_text);
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        luminosityText = findViewById(R.id.luminosity_value);
+        luminositySensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        gyroscopeX = findViewById(R.id.gyroscope_x);
+        gyroscopeY = findViewById(R.id.gyroscope_y);
+        gyroscopeZ = findViewById(R.id.gyroscope_z);
+        gyroscopeSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
     }
 
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(
+                this,
+                luminositySensor,
+                SensorManager.SENSOR_DELAY_NORMAL
+        );
+        sensorManager.registerListener(
+                this,
+                gyroscopeSensor,
+                SensorManager.SENSOR_DELAY_NORMAL
+        );
     }
 
     protected void onPause() {
@@ -43,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Sensor s = e.sensor;
         if (s.getType() == Sensor.TYPE_LIGHT) {
             luminosityText.setText(Float.toString(e.values[0]));
+        }
+        if (s.getType() == Sensor.TYPE_GYROSCOPE) {
+            gyroscopeX.setText(Float.toString(e.values[0]));
+            gyroscopeY.setText(Float.toString(e.values[1]));
+            gyroscopeZ.setText(Float.toString(e.values[2]));
         }
     }
 
